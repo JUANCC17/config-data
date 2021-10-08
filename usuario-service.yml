@@ -1,0 +1,24 @@
+server:
+  port: 9091
+
+spring:
+  #Base de datos
+  datasource:
+    url: jdbc:firebirdsql://192.168.8.7:3050//database/SIGATEST.FDB?sql_dialect=3&charSet=ISO8859_1
+    driver-class-name: org.firebirdsql.jdbc.FBDriver
+    username: SYSDBA
+    password: masterkey
+  #Configuracion JPA
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.FirebirdDialect
+
+#Formato para mostrar el log
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
